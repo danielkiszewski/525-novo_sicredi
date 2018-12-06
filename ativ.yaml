@@ -1,0 +1,31 @@
+
+- name: atividade
+  hosts: "{{maquina}}"
+  vars:
+   - maquina: null
+   - prog: null
+   - seunome: null
+  tasks:
+   - name: instalando os pacotes
+     package:
+      name: "{{prog}}"
+
+   - name: criando usuario devops
+     user:
+      name: devops
+      state: present
+      password: '$1$rWsWgtQy$st1Cs37nQYSreMSWLfS3t1'
+ 
+   - name: criando usuarios developer
+     user: 
+      name: developer
+      state: present
+      password: '$1$eMxmiA3f$NVdktrTnXpic/ALgMODLN1'
+
+    - name: criando usuarios seunome
+      user: 
+       name: "{{seuusuario}}"
+       state: present
+       password: '$1$5lSIgnhA$293VwX3Gc4CzZ4J3.j2lJ0'
+
+
